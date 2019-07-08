@@ -1,6 +1,6 @@
 ## Altair hard disk operation (MITS 88-HDSK Controller)
 
-The Altair can access four hard disks, specified with the switches and the use of the AUX1 and AUX2 toggles.
+The Altair-Duino system can access four hard disks, specified with the switches and the use of the AUX1 and AUX2 toggles. In other words, this is not going to work on a real Altair - it's a trick to simulate using hard disks on the Altair-Duino. There is no way to connect genuine MITS hard drives to the Altair-Duino (just in case you happened to find some).
 
 Note: This section requires that a SD card be present on your Altair-Duino. 
 
@@ -10,7 +10,7 @@ Note: This section requires that a SD card be present on your Altair-Duino.
 
 ## Display a list of available hard disk images
 
-To see a list of available disk images that can be loaded, enter the following pattern on the toggle switches:
+To see a list of available disk images that can be loaded, enter the following pattern on the address toggle switches (1 means the switch is up):
 
 | 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|

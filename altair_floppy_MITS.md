@@ -1,14 +1,14 @@
 ## Altair floppy disk operation (MITS Disk Controller)
 
-The Altair can access multiple floppy disks in multiple drives. With a real Altair, you would place the floppy disks into the drives. With the Altair-Duino, the name of the disks, and drives to mount them in, are specified with the switches and the use of the AUX1 and AUX2 toggles.
+The Altair can access multiple floppy disks in multiple drives. With a real Altair, you would place the floppy disks into the drives. With the Altair-Duino, the name of the disks, and drives to mount them in, are specified with the switches and the use of the AUX1 and AUX2 toggles. So this is NOT going to work on a real Altair - it's a trick to simulate using real floppy disks. It's not possible to connect a real, physical floppy disk drive to an Altair-Duino. It's for your own good, really.
 
-This section is for the **MITS Disk Controller**.  To use the **Tarbell Disk Contoller** see the section **Altair floppy disk operation (Tarbell Disk Controller)**.
+This section refers for the **MITS Disk Controller**.  To use the **Tarbell Disk Contoller** see the section **Altair floppy disk operation (Tarbell Disk Controller)**.
 
 ![An Altair 8800 sitting atop a floppy disk drive](images/altair-floppy.jpg)
 
 ## Display a list of available floppy disks
 
-To see a list of available disk images that can be loaded, enter the following pattern on the toggle switches:
+To see a list of available disk images that can be loaded, enter the following pattern on the address toggle switches (1 means the switch is up):
 
 | 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
