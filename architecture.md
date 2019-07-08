@@ -37,7 +37,7 @@ The CP/M memory map looks like this:
 | 'Low storage' area..                   | 0000h |
 | ..used by CP/M                     | 00ffh  |
 | TPA - free memory for programs aka "Transient Program Area" | 0100h   |
-| CCP - console command processor        | xxxxh |
+| CCP - Console Command Processor        | xxxxh |
 | BDOS - Basic Disk Operating System                              |xxxxh|
 | BIOS - Basic Input Output System                             |xxxxh|
 | Maximum possible memory space      | FFFFh   |
