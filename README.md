@@ -8,14 +8,15 @@ Once you've built your kit - now what?
 
 * [Introduction to retro computer architecture](architecture)
 * [Using the front panel](the_front_panel)
-* [Entering code using the front panel](coding_with_front_panel)
 * The IMSAI's Programmed Output
+* [Entering code using the front panel](coding_with_front_panel)
 * [Connecting and using video displays](video_displays)
 * [Using floppy disks with the Altair](altair_floppy_MITS)
 * [Using hard disks with the Altair](altair-hard)
 * Disk management on the IMSAI
 * [Shortcuts and tricks for the Altair](altair-shortcuts)
 * Shortcuts and tricks for the IMSAI
+* BASIC
 * Introduction to using CP/M
 * Obtaining and installing CP/M software
 * Understanding disk formats

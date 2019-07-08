@@ -17,7 +17,7 @@ The 8080 and Z80 CPUs could address up to 64Kb of memory(*) and this would start
 | Description     | Address |
 |-----------------|---------|
 | Start of memory | 0000h |
-| Max supported memory   | FFFFh |
+| Maximum supported memory   | FFFFh |
 
 Initially the Altair shipped with 256 bytes of memory, and the IMSAI with 1Kb of memory. Why? Because memory was very expensive in 1975!
 
@@ -34,11 +34,13 @@ The CP/M memory map looks like this:
 | Description                       | Address |
 |-----------------------------------|---------|
 | Start of memory                   | 0000h   |
-| Free memory for program aka "Transient Program Area" | 0100h   |
-| CCP - command line program        | xxxxh |
+| 'Low storage' area..                   | 0000h |
+| ..used by CP/M                     | 00ffh  |
+| TPA - free memory for programs aka "Transient Program Area" | 0100h   |
+| CCP - console command processor        | xxxxh |
 | BDOS - Basic Disk Operating System                              |xxxxh|
 | BIOS - Basic Input Output System                             |xxxxh|
-| End of possible memory space      | FFFFh   |
+| Maximum possible memory space      | FFFFh   |
 
 The exact address of the CCP, BDOS and BIOS components of CP/M would vary from system to system. Depending on much memory you had installed, you would literally build your own custom version of CP/M to make full use of it. Your bespoke CP/M would also include the necessary drivers for the floppy and hard drives you added to your system.
 
@@ -71,7 +73,7 @@ STRING: DB 'Hello World!', 10,13,'$'
 This was basic, but it was also enough to create a standard platform that software developers could start to take advantage of. The weird and wonderful hardware of the day was abstracted away behind the BDOS and BIOS, allowing developers to write code and create powerful and useful apps. And write they did - CP/M was the most popular software platform in the world at the time.
 
 
-**ROMs***
+**ROMs**
 
 ROMs could be installed into the system, and they too would need to appear in the same memory map. For example, a floppy disk drive might come with a ROM of drivers, and that ROM would expect to be at a specific address - say F000h. The user could then start the code in the ROM running by selecting F000h on the address switches, toggling EXAMINE and RUN.
 
