@@ -97,7 +97,7 @@ With an address set, you might want to write a new value at that location. At th
 If a program is running, the eight left-most switches can be used to provide into into the computer. The computer can use IN(0) to read the current state as an 8-bit number.
 
 
-** Examples **
+**Examples**
 
 This can be rather confusing, so let's look at some very specific examples.
 

@@ -4,13 +4,13 @@ A guide to using the new range of retro-inspired 8080/Z80 based computers, inclu
 
 ## Table of contents
 
-* Introduction to retro computer architecture
-* Using the front panel
+* [Introduction to retro computer architecture](architecture)
+* [Using the front panel](coding-with-front-panel)
 * Entering code using the front panel
 * The IMSAI's Programmed Output
 * Connecting and using video displays
-* Using floppy disks with the Altair
-* Using hard disks with the Altair
+* [Using floppy disks with the Altair](altair_floppy_MITS)
+* [Using hard disks with the Altair](altair_hard)
 * Disk management on the IMSAI
 * Shortcuts and tricks for the Altair
 * Shortcuts and tricks for the IMSAI
