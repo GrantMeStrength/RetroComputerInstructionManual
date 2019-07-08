@@ -1,7 +1,5 @@
 ## Connecting a video display to your computer
 
-IN PROGRESS
-
 The early home computers such as the Altair and IMSAI did not have video cards. Likewise, the kits do not have HDMI or even VGA ports as standard (Note: the 'Pro' edtion of the Altair-Duino kit from AdWaterAndStir has a VGA port).
 
 Out of the box, just like the real thing, the only way to interact with these computers was by using the switches on the front panels and by watching the LEDs. Although interesting, this can be quite limiting.
