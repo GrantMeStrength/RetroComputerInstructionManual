@@ -4,7 +4,7 @@ The Altair can access multiple floppy disks in multiple drives. With a real Alta
 
 This section refers for the **MITS Disk Controller**.  To use the **Tarbell Disk Contoller** see the section **Altair floppy disk operation (Tarbell Disk Controller)**.
 
-![An Altair 8800 sitting atop a floppy disk drive](images/altair-floppy.jpg)
+![An Altair 8800 floppy disk drive](images/altair-floppy.jpg)
 
 ## Display a list of available floppy disks
 
