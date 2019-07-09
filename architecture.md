@@ -1,4 +1,4 @@
-## Introduction to system architecture
+# Introduction to system architecture
 
 Conceptually, the Altair and IMSAI computers were a very straightforward design. Inside the box was a front panel with LEDs and switches, a power supply, and a "back plane" circuit board with almost much nothing but a set of interconnected 100-pin slots - known as the S-100 Bus.
 
@@ -80,3 +80,4 @@ ROMs could be installed into the system, and they too would need to appear in th
 Some expansion cards could also combine ROM and RAM, swapping them in and out as required (they couldn't exist in the memory map at the same location at the same time).
 
 (*) The 8080 could in theory address up to 128Kb, using the second 64Kb for stack memory.
+

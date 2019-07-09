@@ -1,4 +1,4 @@
-## Altair shortcuts
+# Altair shortcuts
 
 ### Storing and using default start settings
 

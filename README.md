@@ -1,10 +1,23 @@
+---
+title: The Retro Computer Manual
+header: The Retro Computer Manual
+footer: 
+geometry: margin=1in
+fontsize: 12pt
+documentclass: extreport
+mainfont: Arial
+mainfontoptions: 
+- BoldFont=Font-Bold.otf
+- ItalicFont=Font-Bold.otf
+- BoldItalicFont=Font-Bold.otf
+---
+
 # Retro Computer Instruction Manual
 
 A guide to using retro-inspired 8080/Z80 based computers, including the Altair-Arduino and IMSAI 8080esp.
+Or, to put it another way, "OK you've built your kit - now what? What are you going to do with it?"
 
-Once you've built your kit - now what?
-
-## Table of contents
+**Table of contents**
 
 * [Introduction to retro computer architecture](architecture)
 * [Using the front panel](the_front_panel)
