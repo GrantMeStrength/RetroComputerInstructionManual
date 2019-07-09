@@ -2,7 +2,7 @@
 
 A distinguishing feature of the Altair and IMSAI computers is their primary user interface - the front panel covered in LEDs and switches.
 
-Although initally overwhelming, there is a logal pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
+Although initally overwhelming, there is a logical pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
 
 **Altair 8800**
 
@@ -30,7 +30,7 @@ Status LEDs
 | MI    | The CPU is processing the first part of an instruction.                                              |
 | OUT   | The address refers to an output device.                                                              |
 | HLTA  | The assembly instruction HALT has been executed, and acknowledged.                                   |
-| STACK | The address bus hols the Stack Pointer's push-down stack address.                                    |
+| STACK | The address bus holds the Stack Pointer's push-down stack address.                                    |
 | WO    | The operation being executed is a Write or Output operation.                                         |
 | INT   | An interrupt request has been acknowledged.                                                          |
 

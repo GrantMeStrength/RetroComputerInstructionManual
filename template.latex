@@ -433,7 +433,7 @@ contents={%
 \titleformat{\paragraph}[runin] 
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{} 
 \titleformat{\subparagraph}[runin] 
-{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+{\normalfont\small\bfseries}{\thesubparagraph}{1em}{}
 
 \titlespacing*{\chapter} {0pt}{10pt}{10pt} 
 \titlespacing*{\section} {0pt}{10pt}{10pt} 
