@@ -17,7 +17,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 * [Using hard disks with the Altair](altair-hard)
 * Disk management on the IMSAI
 * [Shortcuts and tricks for the Altair](altair-shortcuts)
-* ]Shortcuts and tricks for the IMSAI](imsai-shortcuts)
+* [Shortcuts and tricks for the IMSAI](imsai-shortcuts)
 * BASIC
 * Introduction to using CP/M
 * Obtaining and installing CP/M software
