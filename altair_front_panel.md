@@ -94,7 +94,7 @@ With an address set, you might want to write a new value at that location. At th
 
 **Sense**
 
-If a program is running, the eight left-most switches can be used to provide into into the computer. The computer can use IN(0) to read the current state as an 8-bit number.
+If a program is running, the eight left-most switches can be used to provide into into the computer. The computer can use IN FFh to read the current state as an 8-bit number.
 
 
 **Examples**

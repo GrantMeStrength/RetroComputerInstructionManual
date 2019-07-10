@@ -1,20 +1,24 @@
 # Introduction to system architecture
 
-Conceptually, the Altair and IMSAI computers benefitted from a very straightforward design. Inside the large boxes was a front panel with LEDs and switches, a huge power supply, and a "back plane" circuit board with almost much nothing but a set of interconnected 100-pin slots - known as the S-100 Bus.
+Welcome to the state-of-the-art, in the mid 1970s!
+
+Now that you have built your computers, it's time to put them to work. Conceptually, the Altair and IMSAI computers benefit from a very straightforward design. Inside the large boxes is a front panel with LEDs and switches, a huge power supply, and a "back plane" circuit board which consists of almost nothing but a set of interconnected 100-pin slots - this is the S-100 Bus.
 
 ![An IMSAI opened up and wantonly displaying the S-100 Bus](images/imsai-bus.png)
 
-Into those slots would be placed the various cards that comprised the computer system: first the CPU card (with an Intel 8080 or a Zilog Z80 CPU), and then a RAM card (initially composed of static RAM chips).
+Into those slots are placed the various cards that comprise the computer system: first the CPU card (with an Intel 8080 or a Zilog Z80 CPU), and then a RAM card (initially composed of static RAM chips).
 
-In theory that's all what was needed to make a working computer. Code could be entered using the front panel switches, and the LEDs provided a form of output.
+In theory that's all that's needed to make a working computer. Code an be entered using the front panel switches, and the LEDs provide visual output.
 
- In practice, this wasn't enough and users also installed floppy and hard drive controller cards, ROM cards, more RAM, serial cards (for driving terminals and printers), parallel cards (for more printers), and even graphic display cards and camera capture cards.
+ In practice, this isn't quite enough for most people, and so users bought and installed floppy and hard drive controller cards, ROM cards, more RAM, serial cards (for driving terminals and printers), parallel cards (for more printers), even more RAM, and the very well-off ones bought graphic display cards and camera capture cards.
+
+You, however, are lucky and don't need to worry about the S-100 bus and selling internal organs to populate it. Your modern recreation will simulate all manner of hardware expansions for you.
 
 **Operation**
 
-These machines work in a predictable, straightforward manner: a Program Counter register keeps track of a location in the 64Kb memory space. When the machine is told to RUN, tt will read the contents of memory at this address, and execute it as machine code. The code will continue to run, following instructions, and updating the Program Counter accordingly. The memory map starts at 0000h, and RESET will load that value into the Program Counter.
+Under the (heavy metal) covers, these computers work in a predictable, straightforward, single-minded manner: a Program Counter register keeps track of a location in the memory space. When the machine is told to RUN, it will read the contents of memory at this address, and execute it as machine code. The code will continue to run, following the instruction in the list, updating the Program Counter accordingly when it gets to JUMPS, CALLs and so on. The memory map starts at 0000h, and that's where the RESET button on the front panel will send Program Counter when it's pressed.
 
-The LEDs reflect this activity, and unless you had extra hardware attached to your computer, that's all you got. Thankfully it didn't take long before Serial cards were added, which made it possible to connect the computer to devices such as Teletypes and video terminals.
+The LEDs reflect all this activity, and unless you did happen to have extra hardware attached to your computer, that's all you got. Thankfully it didn't take long before Serial cards were added, which made it possible to connect the computer to devices such as Teletypes and video terminals.
 
 **Memory Map**
 
@@ -29,11 +33,13 @@ Initially the Altair shipped with 256 bytes of memory, and the IMSAI with 1Kb of
 
 However, it soon became apparent that a lot more would be needed in order to run useful software: Microsoft's smallest version of BASIC alone required 4Kb, and so expansion cards were soon on the wish list of every computer owner.
 
-ROMs were expensive, and so sometimes it was necessary to "boot strap" the computer manually to get a disk drive working instead on relying on code in a ROM. This would entail entering a set of assembly language instructions directly using the front panel and executing them - hopefully triggering the disk drive to load more, and execute those: thus booting up CP/M or some other application. We'll cover how you might do that in another section.
+ROMs were expensive, sometimes prohibitively so, and thus it was necessary for many users to "boot strap" the computer manually to get a disk drive working instead on relying on code in a ROM. This would entail entering a set of assembly language instructions directly using the front panel and executing them - hopefully triggering the disk drive to load and execute more code: thus booting CP/M or some other application. We'll cover how you might do that in another section.
 
 **Memory Map using CP/M**
 
-If CP/M was loaded, memory was arranged in a specific way. Again, the memory started at 0000h, but this time CP/M included some of its code there: a set of jumps to useful routines, and of course, code at 0000h that would jump to the code that brought up the famous A: prompt to allow the user to enter commands.
+To simplify writing applications, and to make it easier to distribute them to different computers, it made sense to use an operating system. The most popular OS at the time, was called CP/M. 
+
+If CP/M was loaded into your computer, the memory map was arranged in a very specific way. Again, the memory started at 0000h, but this time CP/M included some of its own code there: a set of jumps to useful routines, and of course, code at 0000h that would jump to the famous A: prompt and allow the user to enter commands.
 
 The CP/M memory map looks like this:
 
@@ -62,12 +68,12 @@ Here is an example of some code. Any application can call the CP/M "Print" funct
 PRINT EQU 9                     ; The Print function
 BDOS EQU 5                      ; The address of the BDOS code vector
 
-org 0100h                       ; All user code starts at 0100h
+ORG 0100h                       ; All user code starts at 0100h
 
 LXI D, STRING                   ; Get the address of the string to print
-MVI C, PRINT                    ; Load register C with the magic code for printing
+MVI C, PRINT                    ; Load register C with the code for printing
 CALL BDOS                       ; Call the BDOS
-RET                              ; End program
+RET                             ; End program
 
 ; The BDOS Print needs a string ending in $
 STRING: DB 'Hello World!', 10,13,'$'    
