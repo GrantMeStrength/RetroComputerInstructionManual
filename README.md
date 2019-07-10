@@ -8,7 +8,8 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 **Table of contents**
 
 * [Introduction to retro computer architecture](architecture)
-* [Using the front panel](the_front_panel)
+* [Using the Altair's front panel](altair_front_panel)
+* [Using the IMSAI's front panel](imsai_front_panel)
 * The IMSAI's Programmed Output
 * [Entering code using the front panel](coding_with_front_panel)
 * [Connecting and using video displays](video_displays)
@@ -16,7 +17,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 * [Using hard disks with the Altair](altair-hard)
 * Disk management on the IMSAI
 * [Shortcuts and tricks for the Altair](altair-shortcuts)
-* Shortcuts and tricks for the IMSAI
+* ]Shortcuts and tricks for the IMSAI](imsai-shortcuts)
 * BASIC
 * Introduction to using CP/M
 * Obtaining and installing CP/M software
