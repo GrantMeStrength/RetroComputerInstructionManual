@@ -2,7 +2,7 @@
 
 A distinguishing feature of the Altair and IMSAI computers is their primary user interface - the front panel covered in LEDs and switches.
 
-Although initally overwhelming, there is a logical pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
+Although initially overwhelming, there is a logical pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
 
 **Altair 8800**
 
@@ -27,7 +27,7 @@ Status LEDs
 | PROT  | The memory currently referenced by the program counter is read only. Rarely used by an Altair-Duino. |
 | MEMR  | The address bus will be used to specify the memory to be read.                                       |
 | INP   | The address refers to an input device.                                                               |
-| MI    | The CPU is processing the first part of an instruction.                                              |
+| M1    | The CPU is processing the first part of an instruction.                                              |
 | OUT   | The address refers to an output device.                                                              |
 | HLTA  | The assembly instruction HALT has been executed, and acknowledged.                                   |
 | STACK | The address bus holds the Stack Pointer's push-down stack address.                                    |
@@ -84,7 +84,7 @@ These switches serve multiple purposes.
 
 **Specify an address**
 
-If the computer is not currently running code (the WAIT LED is on) then you can use these sixteen switches to select the address of the program counter. When all are down, the address is 0000f. When all are up, it's FFFFh.
+If the computer is not currently running code (the WAIT LED is on) then you can use these sixteen switches to select the address of the program counter. When all are down, the address is 0000h. When all are up, it's FFFFh.
 
 Typically you would set the switches to specify an address, and then toggle EXAMINE. The address LEDs will change to reflect the same address, amd the data LEDs will display the byte at that address.
 

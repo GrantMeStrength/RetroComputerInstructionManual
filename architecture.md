@@ -1,14 +1,20 @@
 # Introduction to system architecture
 
-Conceptually, the Altair and IMSAI computers were a very straightforward design. Inside the box was a front panel with LEDs and switches, a power supply, and a "back plane" circuit board with almost much nothing but a set of interconnected 100-pin slots - known as the S-100 Bus.
+Conceptually, the Altair and IMSAI computers benefitted from a very straightforward design. Inside the large boxes was a front panel with LEDs and switches, a huge power supply, and a "back plane" circuit board with almost much nothing but a set of interconnected 100-pin slots - known as the S-100 Bus.
 
 ![An IMSAI opened up and wantonly displaying the S-100 Bus](images/imsai-bus.png)
 
-Into those slots would be placed the various cards that comprised the computer system: first the CPU card (with an Intel 8080 or a Zilog Z80 CPU), and then a RAM card (initally composed of static RAM chips).
+Into those slots would be placed the various cards that comprised the computer system: first the CPU card (with an Intel 8080 or a Zilog Z80 CPU), and then a RAM card (initially composed of static RAM chips).
 
 In theory that's all what was needed to make a working computer. Code could be entered using the front panel switches, and the LEDs provided a form of output.
 
  In practice, this wasn't enough and users also installed floppy and hard drive controller cards, ROM cards, more RAM, serial cards (for driving terminals and printers), parallel cards (for more printers), and even graphic display cards and camera capture cards.
+
+**Operation**
+
+These machines work in a predictable, straightforward manner: a Program Counter register keeps track of a location in the 64Kb memory space. When the machine is told to RUN, tt will read the contents of memory at this address, and execute it as machine code. The code will continue to run, following instructions, and updating the Program Counter accordingly. The memory map starts at 0000h, and RESET will load that value into the Program Counter.
+
+The LEDs reflect this activity, and unless you had extra hardware attached to your computer, that's all you got. Thankfully it didn't take long before Serial cards were added, which made it possible to connect the computer to devices such as Teletypes and video terminals.
 
 **Memory Map**
 
@@ -23,7 +29,7 @@ Initially the Altair shipped with 256 bytes of memory, and the IMSAI with 1Kb of
 
 However, it soon became apparent that a lot more would be needed in order to run useful software: Microsoft's smallest version of BASIC alone required 4Kb, and so expansion cards were soon on the wish list of every computer owner.
 
-ROMs were expensive, and so sometimes it was necessary to "boot strap" the computer manually to get a disk drive working instead on relying on code in a ROM. This would entain entering a set of assembly language instructions directly using the front panel and executing them - hopefully triggering the disk drive to load more, and execute those: thus booting up CP/M or some other application. We'll cover how you might do that in another section.
+ROMs were expensive, and so sometimes it was necessary to "boot strap" the computer manually to get a disk drive working instead on relying on code in a ROM. This would entail entering a set of assembly language instructions directly using the front panel and executing them - hopefully triggering the disk drive to load more, and execute those: thus booting up CP/M or some other application. We'll cover how you might do that in another section.
 
 **Memory Map using CP/M**
 
@@ -44,9 +50,9 @@ The CP/M memory map looks like this:
 
 The exact address of the CCP, BDOS and BIOS components of CP/M would vary from system to system. Depending on much memory you had installed, you would literally build your own custom version of CP/M to make full use of it. Your bespoke CP/M would also include the necessary drivers for the floppy and hard drives you added to your system.
 
-CP/M might not be what we think of an Operating System today. It didn't provide a graphical user interface, or allow multuple programs to run at once. It didn't provide networking, or automatic updating of software or anything that we take for granted today.
+CP/M might not be what we think of an Operating System today. It didn't provide a graphical user interface, or allow multiple programs to run at once. It didn't provide networking, or automatic updating of software or anything that we take for granted today.
 
-CP/M was a lot more basic, and in essence wasn't much more than an implemetation of an agreed set of basic functions, tailored for a specific set of hardware, coupled with a command line to let the user launch utilities and programs, and the promise that any application would be loaded in at address 0100h and executed. And that was it.
+CP/M was a lot more basic, and in essence wasn't much more than an implementation of an agreed set of basic functions, tailored for a specific set of hardware, coupled with a command line to let the user launch utilities and programs, and the promise that any application would be loaded in at address 0100h and executed. And that was it.
 
 Here is an example of some code. Any application can call the CP/M "Print" function by calling the BDOS start address (00005h) and passing in the special value of 9, and the code in the BDOS will do the actual printing. It's like a primative SDK.
 
