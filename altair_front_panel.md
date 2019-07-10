@@ -107,18 +107,59 @@ Example 1 - Start at memory address and count upwards
 * Set all the address switches to off i.e. down.
 * Toggle RESET. This will reset the program counter to zero. All the address LEDs will be off.
 * Toggle EXAMINE. As the switches are all down, you're still using the program counter at zero, so nothing will appear to happen.
-* Toggle EXAMINE NEXT. The program counter will be incremented. The A0 LED will turn on. This is memory address 0001f
+* Toggle EXAMINE NEXT. The program counter will be incremented. The A0 LED will turn on. This is memory address 0001h
 * Continue to toggle EXAMINE NEXT. The program counter will continue to increment, and the address LED's will count upwards in binary.
 * When you get bored (hopefully in less than 65,384 times) toggle RESET and the counter will start again.
 
 Example 2 - Read the contents of memory
 
 * Toggle STOP, and RESET. You're back to program counter zero.
-* Toggle EXAMINE. This time look at the data LEDs - the value shown is the byte at memory address 0000f.
-* Toggle EXAMINE NEXT. Now the data LEDs show the value at memory address 0001f.
+* Toggle EXAMINE. This time look at the data LEDs - the value shown is the byte at memory address 0000h.
+* Toggle EXAMINE NEXT. Now the data LEDs show the value at memory address 0001h.
 * Continue toggling EXAMINE NEXT for a few times. As the address LEDs show the current address, the data LEDs show the contents of memory.
 
 Example 3 - Writing to memory and confirming the data is correct.
+
+* Toggle STOP, and RESET. The program counter is set to zero.
+* Set all address toggle switches to off.
+* Toggle EXAMINE. The address LEDs will all be off, as the memory address 0000h.
+* Turn the right-most address toggle switch to on.
+
+| 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
+| 0  | 0  | 0  | 0  | 0  | 0  | 0 | 0  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+
+* Toggle DEPOSIT (not DEPOSIT NEXT)
+* The Data LEDs will show one LED lit (the right most), and the Address LEDs will still all be off. You've just pushed a value of 1 into memory address 0.
+* Change the toggle switches to the switch to the left:
+
+| 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
+| 0  | 0  | 0  | 1  | 0  | 0  | 0 | 0  | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
+
+* Toggle DEPOSIT NEXT. This updates the program counter to the next address, and pushes in a value of 2.
+
+Remember your binary?
+
+| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|---|---|---|---|---|---|---|---|
+| 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+
+Let's set two toggle switches to create a value of 3.
+
+| 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
+| 0  | 0  | 0  | 1  | 0  | 0  | 0 | 0  | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+
+* Toggle DEPOSIT NEXT. This updates the program counter to the next address, and pushes in a value of 3.
+
+* Repeat this process until you get bored.
+
+* Now let's read back the memory. Toggle RESET, and set all the address switches to off.
+
+* Toggle EXAMINE, to see the contents of address 0 - which should be a 1.
+* Toggle EXAMINE NEXT to see the contents of address 1 - which should be a 2.
+* Repeatedly toggle EXAMINE NEXT, and you should see not only the address LEDs increment, but your data values too.
 
 
 
