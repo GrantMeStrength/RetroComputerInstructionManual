@@ -35,7 +35,7 @@ or taking the inverted nature into account:
 70 GOTO 20
 ```
 
-Here's a simple example in assembly language that just writes a value to the LEDs. Try changing the value the A register contains:
+Here's a simple example in assembly language that just writes a value to the LEDs. Try changing the value the A register contains (here it's F0h).
 
 ```asm
 MVI A, F0h
@@ -43,13 +43,21 @@ CMA
 OUT FFh
  ```
 
-To enter this into the computer from the front panel, use the following pattern of switches. The binary number refers to the right most half of the 16 address switches.
+To enter this into the computer from the front panel, use the following pattern of switches. The binary number refers to the right most half of the 16 address switches:
+
+![The switches for entering data](images/imsai_enter_data.jpg)
+
+In this picture, with all switches down, that would be
+
+* 0000 0000
+
+Here's the sequence to enter:
 
 * STOP
 * Set all switches off
 * RESET
 * 0011 1110  DEPOSIT
-* 1111 0000  DEPOSIT NEXT
+* 1111 0000  DEPOSIT NEXT <-- experiment with this value
 * 0011 1111  DEPOSIT NEXT
 * 1101 0011  DEPOSIT NEXT
 * 1111 1111  DEPOSIT NEXT
@@ -59,7 +67,12 @@ To enter this into the computer from the front panel, use the following pattern 
 * RESET
 * RUN
 
-You can combine using the LEDs at Port 255 with reading the Input value at port 255 - this value will be the state of the left most set of the 16 address switches.
+Using RESET / EXAMINE / EXAMINE NEXT you can go back and change the F0h value to see what difference that makes.
+
+You can combine using the LEDs at port 255 with reading the input value at port 255 - this value will be the state of the left most set of the 16 address switches.
+
+![The sense switches](images/imsai_sense_switches.jpg)
+
 
 For example, here's a BASIC program that will let you control the LEDs by flipping the switches.
 
