@@ -1,5 +1,14 @@
 # Altair shortcuts
 
+**Access the Altair-Duino configuration screen**
+
+
+**Boot CP/M from floppy**
+
+
+**Boot CP/M from hard drive**
+
+
 **Storing and using default start settings**
 
 TBD

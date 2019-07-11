@@ -1,43 +1,41 @@
 # Introduction to system architecture
 
-Welcome to the state-of-the-art, in the mid 1970s!
+Welcome to the state-of-the-art, mid-1970s edition!
 
-Now that you have built your computers, it's time to put them to work. Conceptually, the Altair and IMSAI computers benefit from a very straightforward design. Inside the large boxes is a front panel with LEDs and switches, a huge power supply, and a "back plane" circuit board which consists of almost nothing but a set of interconnected 100-pin slots - this is the S-100 Bus.
+Now that you have built your computer, it's time to put it to work. Conceptually, the Altair and IMSAI computers benefit from a straightforward design. Inside the large box is a front panel with LEDs and switches, a huge power supply, and a "back plane" circuit board which consists of almost nothing but a set of interconnected 100-pin slots - this is the S-100 Bus.
 
 ![An IMSAI opened up and wantonly displaying the S-100 Bus](images/imsai-bus.png)
 
-Into those slots are placed the various cards that comprise the computer system: first the CPU card (with an Intel 8080 or a Zilog Z80 CPU), and then a RAM card (initially composed of static RAM chips).
+Into those slots are placed the various cards that comprise the computer system: first the CPU card (with an Intel 8080 or a Zilog Z80 CPU), and then a RAM card.
 
-In theory that's all that's needed to make a working computer. Code an be entered using the front panel switches, and the LEDs provide visual output.
+In theory that's all that's needed to make a working computer. Code an be entered using the front panel switches, and the LEDs provide visual output. No monitor, no keyboard and definitely no mouse.
 
- In practice, this isn't quite enough for most people, and so users bought and installed floppy and hard drive controller cards, ROM cards, more RAM, serial cards (for driving terminals and printers), parallel cards (for more printers), even more RAM, and the very well-off ones bought graphic display cards and camera capture cards.
+ In practice, this wasn't quite enough for most people, and so 1970's users bought and installed floppy and hard drive controller cards, ROM cards, more RAM, serial cards (for driving terminals and printers), parallel cards (for more printers), even more RAM, and the very well-off ones bought graphic display cards and camera capture cards.
 
-You, however, are lucky and don't need to worry about the S-100 bus and selling internal organs to populate it. Your modern recreation will simulate all manner of hardware expansions for you.
+You, however, are lucky because you don't need to worry about the S-100 bus and selling internal organs to populate it. Your modern recreation will simulate all manner of hardware expansions for you.
 
 **Operation**
 
-Under the (heavy metal) covers, these computers work in a predictable, straightforward, single-minded manner: a Program Counter register keeps track of a location in the memory space. When the machine is told to RUN, it will read the contents of memory at this address, and execute it as machine code. The code will continue to run, following the instruction in the list, updating the Program Counter accordingly when it gets to JUMPS, CALLs and so on. The memory map starts at 0000h, and that's where the RESET button on the front panel will send Program Counter when it's pressed.
-
-The LEDs reflect all this activity, and unless you did happen to have extra hardware attached to your computer, that's all you got. Thankfully it didn't take long before Serial cards were added, which made it possible to connect the computer to devices such as Teletypes and video terminals.
+Under the (heavy metal) covers, these computers work in a predictable, straightforward, single-minded manner: a program counter register keeps track of a location in the memory space. When the machine is told to RUN, it will read the contents of memory at this address, and execute it as machine code. The code will continue to run, following the instruction in the list, updating the program counter accordingly when it gets to JUMPS, CALLs and so on. The memory map starts at 0000h, and if you press the RESET button on the front panel, that's where the program counter will be sent. The array of LEDs reflect all this activity, giving you a peek at the address bus, data bus and status of the CPU. 
 
 **Memory Map**
 
-The 8080 and Z80 CPUs could address up to 64Kb of memory(*) and this would start at address 0000h and (funds permitting) go all the way to FFFFh. Memory was used to store program code and any data, and when the user set all the front panel address switches to off and toggled RESET and EXAMINE, the program counter was set to 0000h and the computer would display the contents of memory address 0000h. (Static memory chips would often contain random data, and so the data LEDs would display a random pattern.)
+The 8080 and Z80 CPUs can address up to 64Kb of memory(*) starting at address 0000h and (funds permitting) going all the way to FFFFh, so storing up to 65,536 8-bit bytes. Memory was used to store program code and any data, and when the user set a pattern on the front panel address switches and toggled EXAMINE, the the computer would display the contents of memory address on the data LEDs. (The static memory chips used at the time would often contain random data, and so the data LEDs would display a random pattern.)
 
 | Description     | Address |
 |-----------------|---------|
 | Start of memory | 0000h |
 | Maximum supported memory   | FFFFh |
 
-Initially the Altair shipped with 256 bytes of memory, and the IMSAI with 1Kb of memory. Why? Because memory was very expensive in 1975!
+Initially the Altair shipped with 256 bytes of memory, and the IMSAI with 1Kb of memory. Why so little? Because memory was very expensive in 1975!
 
-However, it soon became apparent that a lot more would be needed in order to run useful software: Microsoft's smallest version of BASIC alone required 4Kb, and so expansion cards were soon on the wish list of every computer owner.
+It soon became apparent that a lot more memory would be needed in order to run useful software: Microsoft's smallest version of BASIC alone required 4Kb, and so expansion cards were soon on the wish list of every computer owner.
 
-ROMs were expensive, sometimes prohibitively so, and thus it was necessary for many users to "boot strap" the computer manually to get a disk drive working instead on relying on code in a ROM. This would entail entering a set of assembly language instructions directly using the front panel and executing them - hopefully triggering the disk drive to load and execute more code: thus booting CP/M or some other application. We'll cover how you might do that in another section.
+The other type of computer memory was the ROM: memory that had been pre-programmed with code. ROMs were expensive, sometimes prohibitively so, and thus it was not unknown for users to "boot strap" the computer manually to get a disk drive working instead on relying on code in a ROM. This would entail entering a set of assembly language instructions directly using the front panel and executing them - hopefully triggering the disk drive to load and execute more code: thus booting CP/M or some other application. We'll cover how you might do that in another section.
 
 **Memory Map using CP/M**
 
-To simplify writing applications, and to make it easier to distribute them to different computers, it made sense to use an operating system. The most popular OS at the time, was called CP/M. 
+To simplify writing applications, and to make it easier to distribute them to different computers, it made sense to use an operating system. The most popular OS at the time, was called CP/M.
 
 If CP/M was loaded into your computer, the memory map was arranged in a very specific way. Again, the memory started at 0000h, but this time CP/M included some of its own code there: a set of jumps to useful routines, and of course, code at 0000h that would jump to the famous A: prompt and allow the user to enter commands.
 
@@ -90,6 +88,28 @@ This was basic, but it was also enough to create a standard platform that softwa
 ROMs could be installed into the system, and they too would need to appear in the same memory map. For example, a floppy disk drive might come with a ROM of drivers, and that ROM would expect to be at a specific address - say F000h. The user could then start the code in the ROM running by selecting F000h on the address switches, toggling EXAMINE and RUN.
 
 Some expansion cards could also combine ROM and RAM, swapping them in and out as required (they couldn't exist in the memory map at the same location at the same time).
+
+
+**Expansion unlimited**
+
+
+Let's say you had an Altair or IMSAI in the 70's, and you also won the lottery and could afford to get anything you wanted. Where would you start? Obviously you'd get more RAM - how about 16Kb for $4000? 
+
+![Memory card](images/memory-card.jpg)
+
+You would buy a couple of floppy drives ($1500), and since money was no object, a teletype to see what you are working on ($1500). Better add a serial card ($150) - and what the heck. 
+
+![Altair advert](images/altair-advert.jpg)
+
+Why not a very early video camera and capture card? It's a steal at $500. A copy of MicroSoft BASIC is another $500. 
+
+![Comter advert](images/comter.jpg)
+
+Sorry, video terminals are a little too expensive right now - but you could get a Comter CT256 terminal, which has a keyboard and a single line of text.
+
+With all this equipment, you've more computing power than you know what to do with! Better play some Zork..
+
+---
 
 (*) The 8080 could in theory address up to 128Kb, using the second 64Kb for stack memory.
 
