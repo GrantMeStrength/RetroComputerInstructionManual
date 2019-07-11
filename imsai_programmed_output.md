@@ -1,16 +1,16 @@
 # IMSAI 8080 Programmed Output
 
-The IMSAI 8080 has a set of right LEDs in the top left of the panel that are under software control.
+The IMSAI 8080 has a set of eight LEDs in the top left of the panel that are under software control.
 
 ![IMSAI PO leds](images/imsai-PO-leds.png)
 
-These make them very useful when writing code for testing and debugging - or for creating status lights, or a pretty blinkenlights display.
+These LEDs are very useful for testing and debugging when writing code - or for creating status lights, or a pretty blinkenlights display.
 
-The LEDs are reached at port 255: writing a value to this port immediately changes which lights are on and off. You can write to this port directly in assembler, or from BASIC or other programming languages.
+The LEDs are reached at port 255: writing a value to this port immediately changes which are turned on and off. You can write to this port directly in assembler, or from BASIC or in fact any other programming language.
 
-There is one quirk with the LEDs: when you send a "1" to an LED, it turns off, and sending a "0" turns then on. This inverted display is a result of the internal electronics on the IMSAI. It's easy to compensate in software though.
+There is one quirk with the LEDs: when you send a "1" to an LED, it turns off, and sending a "0" turns then on. This inverted display is a result of the internal electronics on the IMSAI - it kept the circuitry a little simpler. It's easy to compensate in software though, as we'll see:
 
-Here are some coding examples:
+Here are some coding examples in Microsoft BASIC:
 
 
 ```BASIC
@@ -26,16 +26,16 @@ Here are some coding examples:
 or taking the inverted nature into account:
 
 ```BASIC
-10 REM BASIC EXAMPLE WITH INVERTED
+10 REM BASIC EXAMPLE WITH INVERTED LEDS
 20 FOR A = 0 TO 255
-30 OUT 255, 256-A
+30 OUT 255, 255-A
 40 FOR B = 1 TO 200
 50 NEXT B
 60 NEXT A
 70 GOTO 20
 ```
 
-Here's a simple example in assembly language that just writes a value to the LEDs. Try changing the value the A register contains (here it's F0h).
+Here's a simple example in assembly language that writes a value to the LEDs. Try changing the value the A register contains (here it's F0h).
 
 ```asm
 MVI A, F0h
@@ -73,11 +73,10 @@ You can combine using the LEDs at port 255 with reading the input value at port 
 
 ![The sense switches](images/imsai_sense_switches.jpg)
 
-
 For example, here's a BASIC program that will let you control the LEDs by flipping the switches.
 
 ```BASIC
-10 REM BASIC EXAMPLE TO READ SWITCHES
+10 REM MICROSOFT BASIC EXAMPLE TO READ SWITCHES
 20 A = INP(255)
 30 OUT 255, A
 40 GOTO 20
