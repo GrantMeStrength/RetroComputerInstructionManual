@@ -81,3 +81,30 @@ For example, here's a BASIC program that will let you control the LEDs by flippi
 30 OUT 255, A
 40 GOTO 20
 ```
+
+In 8080 assembly language that would be:
+
+```ASM
+IN 255
+CMA A
+OUT 255
+JP 0000
+```
+
+Which would be:
+
+* STOP
+* RESET
+* All switches down
+* 1101 1011 DEPOSIT
+* 1111 1111 DEPOSIT NEXT
+* 0010 1111 DEPOSIT NEXT
+* 1101 0011 DEPOSIT NEXT
+* 1111 1111 DEPOSIT NEXT
+* 1111 0010 DEPOSIT NEXT
+* 0000 0000 DEPOSIT NEXT
+* 0000 0000  DEPOSIT NEXT
+* RESET
+* RUN
+
+This code inverts the LEDs, so a switch moved up makes the LED come on.

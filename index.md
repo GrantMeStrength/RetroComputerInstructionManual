@@ -45,4 +45,5 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
     - The Intel 8080 instruction set
     - The Zilog Z80 instruction set
     - Comparing the 8080 and Z80 instruction sets
+    - [Numbers](numbers)
 
