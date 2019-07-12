@@ -12,7 +12,6 @@ There is one quirk with the LEDs: when you send a "1" to an LED, it turns off, a
 
 Here are some coding examples in Microsoft BASIC:
 
-
 ```BASIC
 10 REM BASIC EXAMPLE
 20 FOR A = 0 TO 255
@@ -44,14 +43,15 @@ OUT FFh
 JP 0000h
  ```
 
-To enter this into the computer from the front panel, use the following pattern of switches. The binary number refers to the right most half of the 16 address switches:
+To enter this into the computer from the front panel, use the following pattern of switches.
 
 ![The switches for entering data](images/imsai_enter_data.jpg)
 
-In this picture, with all switches down, that would be
+In the picture above, with all switches down, that would be
 
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 7| 6 |5  | 4 | 3 | 2 | 1 | 0 |
 | -- | -- | -- | -- | -- | -- | -- | -- |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 Here's the sequence to enter:
 
@@ -59,37 +59,25 @@ Here's the sequence to enter:
 * Set all switches off
 * RESET
 
+Now work down this table, setting the switches and first toggling DEPOSIT and then DESPOSIT NEXT for subsequent entries.
+
+| 7| 6 |5  | 4 | 3 | 2 | 1 | 0 | Switch |
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | DEPOSIT |
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | DEPOSIT NEXT |
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 
 * RESET
 * RUN
 
-Using RESET / EXAMINE / EXAMINE NEXT you can go back and change the F0h value to see what difference that makes.
+Using RESET / EXAMINE / EXAMINE NEXT you can go back to address 0001h and change the F0h value to see what difference that makes.
 
-You can combine using the LEDs at port 255 with reading the input value at port 255 - this value will be the state of the left most set of the 16 address switches.
+You can combine using the LEDs at port 255 with reading the input value at port 255 - this value will be the state of the left-most set of the 16 address switches.
 
 ![The sense switches](images/imsai_sense_switches.jpg)
 
@@ -117,30 +105,16 @@ Which would be:
 * RESET
 * All switches down
 
-
+| 7| 6 |5  | 4 | 3 | 2 | 1 | 0 | Switch |
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
 | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 1 | DEPOSIT |
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT |
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
-
 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
-| -- | -- | -- | -- | -- | -- | -- | -- | --- |
 
 
 * RESET
