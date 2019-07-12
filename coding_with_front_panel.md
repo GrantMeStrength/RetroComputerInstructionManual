@@ -1,44 +1,46 @@
 # Writing software using switches and LEDs
 
-How on earth do you write software for a box with only LEDs and some switches? And the answer is "very carefully".
+How on earth do you write software for a box with only LEDs and  switches? And the answer is "very carefully".
 
-Of course no-one in their right mind would write a large application in this way, but it is possible to write simple games, or - more usefully back in the day - code that can talk to a peripheral floppy disk drive (for example) and load and run much larger programs.
+Of course no-one in their right mind would write a large application in this way, but it is possible to write simple games, or - more usefully back in the day - code that can talk to a peripheral such as a floppy disk drive and load and run much larger programs.
 
-**Code**
+**Assembly language and machine code**
 
 Using the switches, you can enter a byte at a time into memory. The hard part, of course, is knowing which bytes to use! 
 
-The Altair and IMSAI use the Z80 or 8080 CPUs, which are very similar. They can perform simple instructions (adding, subtracting, comparing, logical operations) and with this list, you write software. Now that I write it out loud, it sounds crazy, but it works, honestly. 
+The Altair and IMSAI use the Z80 or 8080 CPUs, which are very similar. They can perform simple instructions (adding, subtracting, comparing, logical operations) and with this list, you write software. Now that I write it out loud, it sounds crazy, but it works, honestly. This is Assembly Language programming.
 
-The **instruction set** is a list of these operations and the numeric code that associated with each one. It's this numeric value that you store in memory - tedious code by tedious code.
+The **instruction set** is a list of these operations and the numeric code that associated with each one. It's this numeric value that you store in memory - tedious machine code by tedious machine code. You can see a table in the Appendix.
 
-You'll need to use the following switches to enter these "machine codes".
+**Switch it up**
+
+You'll need to use the following switches to enter these machine code values.
 
 | Switch | Function |
 |------------------------------------|------|
-| Address switches | Select a memory address|
-| DEPOSIT | Store a byte of memory into the current address|
-| DEPOSIT NEXT | Move to the next address in memory and store a byte there|
-| EXAMINE | Using the current position of the address switches to define a memory location, display the contents of the byte stored there |
-| EXAMINE NEXT | Jump to the next memory location and display the contents of the byte stored there|
+| Address switches | The bank of 16 switches will select a memory address.|
+| DEPOSIT | Stores a byte of memory into the current address.|
+| DEPOSIT NEXT | Moves to the next address in memory and store a byte there.|
+| EXAMINE | Using the current position of the address switches to define a memory location, displays the contents of the byte stored there. |
+| EXAMINE NEXT | Jumps to the next memory location and displays the contents of the byte stored there.|
 
 **Working out the right code to enter**
 
-Let's say the instruction you want to enter at memory address 0000h is to be **IN, 0**. This instruction reads the value of the input/output port specified at **0** and stores it into register **A**.
+Let's say you want to enter the instruction **IN, 0** at memory address 0000h. This instruction reads the value of the input/output port specified at **0** and stores it into register **A**.
 
-Ok, there is probably a million things that made no sense there. Let's go through them one by one.
+Ok, there is probably a million things that made no sense in that single sentence. Let's go through them one by one.
 
-* Memory address 0000h is the first memory address, so a pretty good place to start a program. WHen you toggle RESET and RUN, the computer will go to address 0000h and execute the instruction it finds there.
+* Memory address 0000h is the first memory address in your computer, so a pretty good place to start a program. When you toggle RESET and RUN, the computer will go to address 0000h and execute the instruction it finds there.
 
 * IN is an instruction that the CPU understands. How can you tell? Because the manufacturer of the CPU told us the list of instructions and what they do.
 
-* IN takes a value from an **Input port**. An **Input Port** in this context isn't really a physical port you can stick your finger into. It's really a way of allowing a computer to control other electronics. For the Altair and IMSAI, it can be used to read the state of the switches on the front panel from within your program if you use port 255. We'll user port 0 which shouldn't interfere with anything for our example.
+* IN reads a value from an **Input port**. An **Input Port** in this context isn't a physical port you can stick your finger into. It's really a way of allowing a computer to control other electronics. For the Altair and IMSAI, it can be used to read the state of the switches on the front panel, or data from a serial port, or other hardware. We'll use port 0 which shouldn't interfere with anything for this example.
 
-* Register A. The CPU has what you can think of as variables, that can store values from 0 to 255. The CPU can perform sums and tests on variables. A large part of the list of instructions the CPU can do is all about dealing with the registers.
+* Register A. The CPU has a small number of what you can think of as variables: special memory locations that can store values in the range of 0 to 255. The most important registers are named A, B, C, D, H and L. The CPU can perform operations and tests on these registers. In fact, a large number of the instructions that the CPU understands is all about dealing with the registers, either alone, or paired-up to process larger numbers.
 
 OK, hopefully that's better. But how do we get the codes to enter?
 
-As mentioned, the CPU manufacturer publishes a list of the instructions the CPU can execute, along with the number. If look up the IN instruction, you'll see that it has code DBh (in hex) and that it also takes a value to specify the port numbers. You always put any value needed by an instruction the next memory location.
+As mentioned, the CPU manufacturer publishes a list of the instructions the CPU can execute, along with the number. If you look up the IN instruction, you'll see that it has code DBh (that is the value 219 in hexadecimal) and that it also requires a value to specify the port numbers. You always put any values needed by an instruction in the very next memory location.
 
 This means that we would like the memory to look like this:
 
@@ -47,7 +49,7 @@ This means that we would like the memory to look like this:
 | 0000h | IN | DBh |
 | 0001h | 00h | 00h |
 
-The DBh is the hex value for the IN, and the 0h is the port number our app needs.
+The DBh is the hex value for the IN, and the 0h is the port number we're specifying.
 
 Let's add another column to the table - this time the binary equivalent of the code.
 
@@ -56,11 +58,13 @@ Let's add another column to the table - this time the binary equivalent of the c
 | 0000h | IN | DBh | 11011011 |
 | 0001h | 00h | 00h | 00000000 |
 
-The binary version is a pattern you can replicate using switches on the front panel of the computer, right? Sure - when the switch is up, that's a 1. When it's down, that's a 0.
+The binary version is a pattern you can replicate using switches on the front panel of the computer, right? Sure - when the switch is up, that's a 1. When it's down, that's a 0. (Sometimes Octal - base 8 - is used as well, for good reason. See Numbers in the Appendix).
 
-**Just keeps going**
+**It just keeps going**
 
-You might wonder, how does the computer know to stop at the end of the instruction we just entered? And the answer is - it doesn't. It doesn't know you only wanted to enter two numbers, and it will gleefully go to the next memory location, read the value and try to execute it. What is that value? Who knows! What we do know is that nothing good will happen. So we usually add a JUMP instruction and go back to the start or somewhere else harmless. The code for Jump is F2h and this time it takes two values to specify the address to jump to. We will make it jump back to zero.
+You might wonder, how does the computer know to stop at the end of the instructions we just entered? And the answer is - it doesn't. It doesn't know you only wanted to enter two numbers, and it will gleefully carry to the next memory location, read the value and try to execute it. What is that value? Who knows! What we do know is that nothing good will happen. So at the of our code, we usually add a JUMP instruction and go back to the start or somewhere else harmless.
+
+The code for Jump is F2h and this time it takes two values to specify the address to jump to. We will make it jump back to zero, effectively performing the IN instruction over and over as fast as the computer can do it.
 
 |Memory address|Instruction|Code|Binary|
 | - | - | - | - |
@@ -74,15 +78,19 @@ Now we have a program! It doesn't do anything useful, but it's a program!
 
 **Entering the codes**
 
-Let's enter this program.
+Let's enter this program into the memory of our computer.
 
 1. First, toggle STOP to stop the computer.
 2. Make sure all the switches are down, and toggle RESET. This will set the current address to 0000h, which is where will want to start.
 3. Now we need to enter the code 11011011.
 
-Use the switches labeled A7 to A0, the right-most group of switches. Set A7, A6, A4, A3, A1 and A0 up and the others down.
+On the Altair, use the switches labeled A7 to A0, the right-most group of switches. Set A7, A6, A4, A3, A1 and A0 up and the others down.
 
 ![Altair code](images/altair_code.jpg)
+
+On the IMSIA the group of switches is labeled ADDRESS_DATA and they are also numbered 7 to 0.
+
+![EMSAI code](images/imsai_code.jpg)
 
 4. Now toggle the DEPOSIT button. Make sure to toggle it up, not down.
 
