@@ -22,8 +22,8 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 * [Introduction to retro computer architecture](architecture)
 * [Using the Altair's front panel](altair_front_panel)
 * [Using the IMSAI's front panel](imsai_front_panel)
-* [The IMSAI's Programmed Output](imsai_programmed_output)
 * [Entering code using the front panel](coding_with_front_panel)
+* [The IMSAI's Programmed Output](imsai_programmed_output)
 * [Connecting and using video displays](video_displays)
 * [Using floppy disks with the Altair](altair_floppy_MITS)
 * [Using hard disks with the Altair](altair-hard)
@@ -42,7 +42,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
     - Retro computing Kits
     - Using retro computing simulators on a desktop computer
     - Online resources and support groups
-    - The Intel 8080 instruction set
+    - [The Intel 8080 instruction set](intel8080)
     - The Zilog Z80 instruction set
     - Comparing the 8080 and Z80 instruction sets
     - [Numbers](numbers)
