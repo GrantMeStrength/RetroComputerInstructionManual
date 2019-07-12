@@ -178,14 +178,14 @@
 |	255	|	ad	|	XRA L	|	1	|	"Z, S, P, CY, AC"	|	A <- A ^ L	|
 |	256	|	ae	|	XRA M	|	1	|	"Z, S, P, CY, AC"	|	A <- A ^ (HL)	|
 |	257	|	af	|	XRA A	|	1	|	"Z, S, P, CY, AC"	|	A <- A ^ A	|
-|	260	|	b0	|	ORA B	|	1	|	"Z, S, P, CY, AC"	|	A <- A | B	|
-|	261	|	b1	|	ORA C	|	1	|	"Z, S, P, CY, AC"	|	A <- A | C	|
-|	262	|	b2	|	ORA D	|	1	|	"Z, S, P, CY, AC"	|	A <- A | D	|
-|	263	|	b3	|	ORA E	|	1	|	"Z, S, P, CY, AC"	|	A <- A | E	|
-|	264	|	b4	|	ORA H	|	1	|	"Z, S, P, CY, AC"	|	A <- A | H	|
-|	265	|	b5	|	ORA L	|	1	|	"Z, S, P, CY, AC"	|	A <- A | L	|
-|	266	|	b6	|	ORA M	|	1	|	"Z, S, P, CY, AC"	|	A <- A | (HL)	|
-|	267	|	b7	|	ORA A	|	1	|	"Z, S, P, CY, AC"	|	A <- A | A	|
+|	260	|	b0	|	ORA B	|	1	|	"Z, S, P, CY, AC"	|	A <- A or B	|
+|	261	|	b1	|	ORA C	|	1	|	"Z, S, P, CY, AC"	|	A <- A or C	|
+|	262	|	b2	|	ORA D	|	1	|	"Z, S, P, CY, AC"	|	A <- A or D	|
+|	263	|	b3	|	ORA E	|	1	|	"Z, S, P, CY, AC"	|	A <- A or E	|
+|	264	|	b4	|	ORA H	|	1	|	"Z, S, P, CY, AC"	|	A <- A or H	|
+|	265	|	b5	|	ORA L	|	1	|	"Z, S, P, CY, AC"	|	A <- A or L	|
+|	266	|	b6	|	ORA M	|	1	|	"Z, S, P, CY, AC"	|	A <- A or (HL)	|
+|	267	|	b7	|	ORA A	|	1	|	"Z, S, P, CY, AC"	|	A <- A or A	|
 |	270	|	b8	|	CMP B	|	1	|	"Z, S, P, CY, AC"	|	A -B	|
 |	271	|	b9	|	CMP C	|	1	|	"Z, S, P, CY, AC"	|	A -C	|
 |	272	|	ba	|	CMP D	|	1	|	"Z, S, P, CY, AC"	|	A -D	|
@@ -248,7 +248,7 @@
 |	363	|	f3	|	DI	|	1	|		|	special	|
 |	364	|	f4	|	CP adr	|	3	|		|	"if P, PC <- adr"	|
 |	365	|	f5	|	PUSH PSW	|	1	|		|	(sp-2)<-flags; (sp-1)<-A; sp <- sp - 2	|
-|	366	|	f6	|	ORI D8	|	2	|	"Z, S, P, CY, AC"	|	A <- A | data	|
+|	366	|	f6	|	ORI D8	|	2	|	"Z, S, P, CY, AC"	|	A <- A or data	|
 |	367	|	f7	|	RST 6	|	1	|		|	CALL $30	|
 |	370	|	f8	|	RM	|	1	|		|	"if M, RET"	|
 |	371	|	f9	|	SPHL	|	1	|		|	SP=HL	|
