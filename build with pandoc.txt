@@ -1,0 +1,1 @@
+pandoc -s -o manual.pdf index.md architecture.md the_front_panel.md altair_floppy_MITS.md altair-hard.md --template=template.latex --top-level-division=chapter

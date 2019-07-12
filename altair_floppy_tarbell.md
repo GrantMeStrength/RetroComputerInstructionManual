@@ -1,3 +1,3 @@
-## Altair floppy disk operation (Tarbell Disk Controller)
+# Altair floppy disk operation (Tarbell Disk Controller)
 
 TBD

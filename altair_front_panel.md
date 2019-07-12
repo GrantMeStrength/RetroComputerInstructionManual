@@ -2,7 +2,7 @@
 
 A distinguishing feature of the Altair and IMSAI computers is their primary user interface - the front panel covered in LEDs and switches.
 
-Although initally overwhelming, there is a logal pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
+Although initially overwhelming, there is a logical pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
 
 **Altair 8800**
 
@@ -27,10 +27,10 @@ Status LEDs
 | PROT  | The memory currently referenced by the program counter is read only. Rarely used by an Altair-Duino. |
 | MEMR  | The address bus will be used to specify the memory to be read.                                       |
 | INP   | The address refers to an input device.                                                               |
-| MI    | The CPU is processing the first part of an instruction.                                              |
+| M1    | The CPU is processing the first part of an instruction.                                              |
 | OUT   | The address refers to an output device.                                                              |
 | HLTA  | The assembly instruction HALT has been executed, and acknowledged.                                   |
-| STACK | The address bus hols the Stack Pointer's push-down stack address.                                    |
+| STACK | The address bus holds the Stack Pointer's push-down stack address.                                    |
 | WO    | The operation being executed is a Write or Output operation.                                         |
 | INT   | An interrupt request has been acknowledged.                                                          |
 
@@ -84,7 +84,7 @@ These switches serve multiple purposes.
 
 **Specify an address**
 
-If the computer is not currently running code (the WAIT LED is on) then you can use these sixteen switches to select the address of the program counter. When all are down, the address is 0000f. When all are up, it's FFFFh.
+If the computer is not currently running code (the WAIT LED is on) then you can use these sixteen switches to select the address of the program counter. When all are down, the address is 0000h. When all are up, it's FFFFh.
 
 Typically you would set the switches to specify an address, and then toggle EXAMINE. The address LEDs will change to reflect the same address, amd the data LEDs will display the byte at that address.
 
@@ -94,7 +94,7 @@ With an address set, you might want to write a new value at that location. At th
 
 **Sense**
 
-If a program is running, the eight left-most switches can be used to provide into into the computer. The computer can use IN(0) to read the current state as an 8-bit number.
+If a program is running, the eight left-most switches can be used to provide into into the computer. The computer can use IN FFh to read the current state as an 8-bit number.
 
 
 **Examples**
@@ -107,18 +107,59 @@ Example 1 - Start at memory address and count upwards
 * Set all the address switches to off i.e. down.
 * Toggle RESET. This will reset the program counter to zero. All the address LEDs will be off.
 * Toggle EXAMINE. As the switches are all down, you're still using the program counter at zero, so nothing will appear to happen.
-* Toggle EXAMINE NEXT. The program counter will be incremented. The A0 LED will turn on. This is memory address 0001f
+* Toggle EXAMINE NEXT. The program counter will be incremented. The A0 LED will turn on. This is memory address 0001h
 * Continue to toggle EXAMINE NEXT. The program counter will continue to increment, and the address LED's will count upwards in binary.
 * When you get bored (hopefully in less than 65,384 times) toggle RESET and the counter will start again.
 
 Example 2 - Read the contents of memory
 
 * Toggle STOP, and RESET. You're back to program counter zero.
-* Toggle EXAMINE. This time look at the data LEDs - the value shown is the byte at memory address 0000f.
-* Toggle EXAMINE NEXT. Now the data LEDs show the value at memory address 0001f.
+* Toggle EXAMINE. This time look at the data LEDs - the value shown is the byte at memory address 0000h.
+* Toggle EXAMINE NEXT. Now the data LEDs show the value at memory address 0001h.
 * Continue toggling EXAMINE NEXT for a few times. As the address LEDs show the current address, the data LEDs show the contents of memory.
 
 Example 3 - Writing to memory and confirming the data is correct.
+
+* Toggle STOP, and RESET. The program counter is set to zero.
+* Set all address toggle switches to off.
+* Toggle EXAMINE. The address LEDs will all be off, as the memory address 0000h.
+* Turn the right-most address toggle switch to on.
+
+| 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
+| 0  | 0  | 0  | 0  | 0  | 0  | 0 | 0  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+
+* Toggle DEPOSIT (not DEPOSIT NEXT)
+* The Data LEDs will show one LED lit (the right most), and the Address LEDs will still all be off. You've just pushed a value of 1 into memory address 0.
+* Change the toggle switches to the switch to the left:
+
+| 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
+| 0  | 0  | 0  | 1  | 0  | 0  | 0 | 0  | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
+
+* Toggle DEPOSIT NEXT. This updates the program counter to the next address, and pushes in a value of 2.
+
+Remember your binary?
+
+| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|---|---|---|---|---|---|---|---|
+| 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+
+Let's set two toggle switches to create a value of 3.
+
+| 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
+| 0  | 0  | 0  | 1  | 0  | 0  | 0 | 0  | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+
+* Toggle DEPOSIT NEXT. This updates the program counter to the next address, and pushes in a value of 3.
+
+* Repeat this process until you get bored.
+
+* Now let's read back the memory. Toggle RESET, and set all the address switches to off.
+
+* Toggle EXAMINE, to see the contents of address 0 - which should be a 1.
+* Toggle EXAMINE NEXT to see the contents of address 1 - which should be a 2.
+* Repeatedly toggle EXAMINE NEXT, and you should see not only the address LEDs increment, but your data values too.
 
 
 
