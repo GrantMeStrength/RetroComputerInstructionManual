@@ -41,6 +41,7 @@ Here's a simple example in assembly language that writes a value to the LEDs. Tr
 MVI A, F0h
 CMA
 OUT FFh
+JP 0000h
  ```
 
 To enter this into the computer from the front panel, use the following pattern of switches. The binary number refers to the right most half of the 16 address switches:
@@ -49,21 +50,40 @@ To enter this into the computer from the front panel, use the following pattern 
 
 In this picture, with all switches down, that would be
 
-* 0000 0000
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
 
 Here's the sequence to enter:
 
 * STOP
 * Set all switches off
 * RESET
-* 0011 1110  DEPOSIT
-* 1111 0000  DEPOSIT NEXT <-- experiment with this value
-* 0011 1111  DEPOSIT NEXT
-* 1101 0011  DEPOSIT NEXT
-* 1111 1111  DEPOSIT NEXT
-* 1100 0011  DEPOSIT NEXT
-* 0000 0000  DEPOSIT NEXT
-* 0000 0000  DEPOSIT NEXT
+
+| 0 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | DEPOSIT |
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | DEPOSIT NEXT |
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+
 * RESET
 * RUN
 
@@ -96,14 +116,33 @@ Which would be:
 * STOP
 * RESET
 * All switches down
-* 1101 1011 DEPOSIT
-* 1111 1111 DEPOSIT NEXT
-* 0010 1111 DEPOSIT NEXT
-* 1101 0011 DEPOSIT NEXT
-* 1111 1111 DEPOSIT NEXT
-* 1111 0010 DEPOSIT NEXT
-* 0000 0000 DEPOSIT NEXT
-* 0000 0000  DEPOSIT NEXT
+
+
+| 1 | 1 | 0 | 1 | 1 | 0 | 1 | 1 | DEPOSIT |
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT |
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 0 | 0 | 1 | 0 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 1 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DEPOSIT NEXT|
+| -- | -- | -- | -- | -- | -- | -- | -- | --- |
+
+
 * RESET
 * RUN
 
