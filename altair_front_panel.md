@@ -1,10 +1,8 @@
-## Front panel
+# The Altair 8800 front panel
 
 A distinguishing feature of the Altair and IMSAI computers is their primary user interface - the front panel covered in LEDs and switches.
 
 Although initially overwhelming, there is a logical pattern to the designs  which you'll soon come to understand and appreciate. They provide a unique look into the working of the computer in a way that no modern system can offer.
-
-**Altair 8800**
 
 ![An Altair 8800](images/altair-master.png)
 
@@ -17,7 +15,7 @@ There are four sets of LEDs on the Altair front panel:
 | Data      | Located in the right right, these eight LEDs can signify the byte stored at a specific address.           |
 | Address   | Located in the middle of the panel, these sixteen LEDs represent an address in memory, from 0000h to FFFFh |
 
-Status LEDs
+**Status LEDs**
 
 ![Altair status leds](images/altair-status-leds.png)
 
@@ -34,7 +32,7 @@ Status LEDs
 | WO    | The operation being executed is a Write or Output operation.                                         |
 | INT   | An interrupt request has been acknowledged.                                                          |
 
-WAIT/HLDA LEDs
+**WAIT/HLDA LEDs**
 
 ![Altair status leds](images/altair-wait-leds.png)
 
@@ -43,18 +41,20 @@ WAIT/HLDA LEDs
 | WAIT | The computer is not currently executing code. |
 | HLDA | A HOLD has been acknowledged.                 |
 
-Data LEDs
+**Data LEDs**
 
 ![Altair data leds](images/altair-data-leds.png)
 
 When the computer is not running, the WAIT light is on, and EXAMINE or EXAMINE NEXT has been toggled, these LEDs represent the data stored at the current address.
 
 
-Address LEDs
+**Address LEDs**
 
 ![Altair address leds](images/altair-address-leds.png)
 
 When the computer is not running, the WAIT light is on, and EXAMINE or EXAMINE NEXT, or DEPOSIT or DEPOSIT NEXT, or RESET has been toggled, these LEDs represent the current address.
+
+Why are they numbered to A15 to A0, and not A16 to A1? Because programmers love to count from 0: Memory maps (0000h), scores in video games, array indices - everything starts at zero.
 
 
 **Altair control switches**

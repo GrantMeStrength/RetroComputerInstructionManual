@@ -1,4 +1,4 @@
-## Front panel
+# The IMSAI 8080 front panel
 
 A distinguishing feature of the Altair and IMSAI computers is their primary user interface - the front panel covered in LEDs and switches.
 
@@ -62,6 +62,8 @@ When the computer is not running, the WAIT light is on, and EXAMINE or EXAMINE N
 ![IMSAI address leds](images/imsai-address-leds.png)
 
 When the computer is not running, the WAIT light is on, and EXAMINE or EXAMINE NEXT, or DEPOSIT or DEPOSIT NEXT, or RESET has been toggled, these LEDs represent the current address.
+
+Why are they numbered to 15 to 0, and not 16 to 1? Because programmers love to count from 0: Memory maps (0000h), scores in video games, array indices - everything starts at zero.
 
 **INTERRUPT/RUN/WAIT/HOLD LEDs**
 
