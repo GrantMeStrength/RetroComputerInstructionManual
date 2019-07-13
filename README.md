@@ -10,7 +10,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 **Table of contents**
 
 * [Introduction](introduction)
-* [A quick look at retro computer architecture](architecture)
+* [A quick look at computer architecture](architecture)
 * [Using the Altair's front panel](altair_front_panel)
 * [Using the IMSAI's front panel](imsai_front_panel)
 * [Entering code using the front panel](coding_with_front_panel)

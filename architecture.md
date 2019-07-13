@@ -1,4 +1,4 @@
-# Introduction to system architecture
+# A quick look at system architecture
 
 Welcome to the state-of-the-art, mid-1970s edition!
 
