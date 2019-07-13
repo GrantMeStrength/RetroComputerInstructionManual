@@ -2,11 +2,13 @@
 
 Note: AUX1 refers to the AUX switch on the left, AUX2 refers to the AUX switch on the right.
 
-![AUX left and right](images/altair_aux.png)
+![AUX 1 and 2](images/altair_aux.png)
 
 **Access the Altair-Duino configuration screen**
 
 * Hold up **STOP**, keep it  held up, and hold up **AUX1**.
+
+![Settings](images/altair_settings.jpg)
 
 If you have a terminal connected, or your Altair-Duino is connected over USB to your computer, you should see the setting menu appear. This menu is the key to controlling how serial ports work, and also defining default actions when you power on. It's worth spending time learing what options are available.
 
