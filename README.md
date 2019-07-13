@@ -1,6 +1,8 @@
 
 # Retro Computer Instruction Manual
 
+**A work in progress!**
+
 A guide to using retro-inspired 8080/Z80 based computers, including the Altair-Arduino and IMSAI 8080esp.
 
 Or, to put it another way, "OK you've built your kit - now what? What are you going to do with it?"
@@ -28,7 +30,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 * Games and CP/M
 * Connecting to the internet
 * Appendices
-    - Retro computing Kits
+    - [Retro computing Kits](kits)
     - Using retro computing simulators on a desktop computer
     - Online resources and support groups
     - [The Intel 8080 instruction set](intel8080)
