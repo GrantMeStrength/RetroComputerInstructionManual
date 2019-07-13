@@ -29,7 +29,7 @@ The hard disks on the Altair-Duino's file system are named "HDSK01.DSK", "HDSK02
 |----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
 | 0  | 0  | 1  | 1  | 0  | 0  | 0 | 0  | x | x | x | x | x | x | x | x |
 
-For example, to mount disk HDSK03.DSK (by default, **Mike Douglas' CP/M**), set the following switches:
+For example, to mount disk HDSK03.DSK (by default, **Mike Douglas' CP/M**), set the following switches, and then **AUX2** down.
 
 | 15 | 14 | 13 | 12 | 11 | 10 | 9 |  8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |----|----|----|----|----|----|---|----|---|---|---|---|---|---|---|---|
