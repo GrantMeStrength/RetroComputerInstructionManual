@@ -18,7 +18,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 * [Connecting and using video displays](video_displays)
 * [Using floppy disks with the Altair](altair_floppy_MITS)
 * [Using hard disks with the Altair](altair-hard)
-* Disk management on the IMSAI
+* [Disk management on the IMSAI](imsai_disk)
 * [Shortcuts and tricks for the Altair](altair-shortcuts)
 * [Shortcuts and tricks for the IMSAI](imsai-shortcuts)
 * BASIC
