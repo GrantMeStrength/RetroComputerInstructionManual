@@ -2,6 +2,8 @@
 
 Welcome to the state-of-the-art, mid-1970s edition!
 
+![Simple, really](images/block.png)
+
 Now that you have built your computer, it's time to put it to work. Let's start by learning a little about how these systems worked.
 
 Conceptually, the Altair and IMSAI computers benefit from a straightforward design. Inside the large box is a front panel with LEDs and switches, a huge power supply, and a "back plane" circuit board which consists of almost nothing but a set of interconnected 100-pin slots - this is the S-100 Bus.
