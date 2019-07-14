@@ -46,7 +46,7 @@ Or, to put it another way, "OK you've built your kit - now what?"
     - Using retro computing simulators on a desktop computer
     - Online resources and support groups
     - [The Intel 8080 instruction set](intel8080)
-    - The Zilog Z80 instruction set
+    - [The Zilog Z80 instruction set](z80)
     - Comparing the 8080 and Z80 instruction sets
     - [Numbers](numbers)
 

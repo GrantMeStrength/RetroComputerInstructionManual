@@ -22,16 +22,15 @@
 
 **Using Octal**
 
-
-Using octal (base 8) can speed up code entry, as it maps very well to the panel switches.
+Using octal (base 8) can speed up code entry, as it maps very well to the panel switches and is a little easier to do in your head than hexidecimal.
 
 The Altair and IMSAI obviously use binary - with each switch is a bit - but it is also common to use octal when entering Z80 or 8080 opcode instructions.
 
-To see how this is done, consider the last six (the ‘least significant’) switches on the panel:
+To see how this is done, consider the last eight (the ‘least significant’) switches on the panel:
 
 ![octal part 1](images/octal1.png)
 
-(ignore the one on the far left - we only need the D7 to D0 switches and LEDs, as these describe 8 bits)
+(ignore the one on the far left - we only need the 7 to 0 switches and LEDs, as these describe 8 bits)
 
 You can already think of these in binary, of course. So the setting above with all lights off would be this:
 
@@ -43,7 +42,7 @@ Here's a slightly more interesting pattern:
 
 This pattern would represent 10010010
 
-Let’s group this example into units of three bits, as the front panel subtly hints at with the spacing between the LEDs and switches. 
+Let’s group this example into units of 3 bits, as the front panel subtly hints at with the spacing between the LEDs and switches. 
 
 10 010 010
 
@@ -61,9 +60,9 @@ Some more examples in case you don't quite get it:
 10 010 110 == 226
 11 111 111 == 377
 
-So any grouping of D7 to D0 can be written using a three digit octal number. 
+So any grouping of switch 7 to switch 0 can be written using a three digit octal number. 
 
-If you can express your machine code program in octal, it makes it a lot quicker to enter the codes and press “Deposit”.
+If you can express your machine code program in octal, it makes it a lot quicker to enter the codes and press **DEPOSIT**.
 
 e.g. You could write a program on piece of paper as:
 
