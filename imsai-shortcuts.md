@@ -2,7 +2,7 @@
 
 **Start up in configuration mode**
 
-The IMSAI 8080 replica has a special start-up mode for configuring ROMs and other settings (e.g. Z80 or 8080). To enter this mode:
+The IMSAI 8080 replica has a special start-up mode for configuring ROMs and other settings (e.g. selecting between Z80 or 8080). To enter this mode:
 
 * Connect the power supply, but turn the **PWR** switch to **OFF**.
 * Hold the **EXAMINE** toggle up, and keep holding.
