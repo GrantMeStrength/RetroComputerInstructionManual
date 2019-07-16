@@ -14,12 +14,17 @@ If you have a terminal connected, or your Altair-Duino is connected over USB to 
 
 **Reset default settings**
 
-If you get the system messed up by trying out too many options, you can do a "factory reset" of the settings.
+If you get the system messed up by trying out too many options, you can do a "factory reset" of the settings. Either delete the SETTINGS.DAT file on the SD card (pop it into your desktop PC to do it), or as Chris Davis writes: "Follow these steps EXACTLY:
 
-* Hold up the **RESET** toggle
-* Turn on the power
+1. Connect your Altair-Duino to your computer via USB.
+2. Launch Terra Term or Putty.
+3. IMPORTANT - hold the RESET toggle UP and do not release it until step 6.
+4. Connect to whatever serial port the USB is.
+5. The front panel lights will flash briefly while it connects.
+6. Release the RESET toggle.
+7. Now you have temporarily returned to the default settings. If you would like to save them (I suggest you do) you can go to the configuration menu (raise STOP and AUX1) and save as config #0.
 
-The default settings expect a USB lead connected to a computer, running a terminal program and a connection over USB.
+If that does not work unplug it and try step 1-7 again."
 
 **Selecting a default disk to boot**
 
