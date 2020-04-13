@@ -34,13 +34,14 @@ Or, to put it another way, "OK you've built your kit - now what?"
 * [Shortcuts and tricks for the Altair](altair-shortcuts)
 * [Shortcuts and tricks for the IMSAI](imsai-shortcuts)
 * BASIC
+* FORTH
 * Introduction to using CP/M
 * Obtaining and installing CP/M software
 * Understanding disk formats
 * Writing assembly code for CP/M
 * Programming languages and CP/M
 * Games and CP/M
-* Connecting to the internet
+* [Connecting to BBSs with the IMSAI8080esp](imsai-bbs)
 * Appendices
     - [Retro computing Kits](kits)
     - Using retro computing simulators on a desktop computer
