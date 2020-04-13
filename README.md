@@ -28,7 +28,7 @@ Or, to put it another way, "OK you've built your kit - now what? What are you go
 * Writing assembly code for CP/M
 * Programming languages and CP/M
 * Games and CP/M
-* Connecting to the internet
+* [Connecting to BBSs with the IMSAI8080esp](imsai-bbs)
 * Appendices
     - [Retro computing Kits](kits)
     - Using retro computing simulators on a desktop computer
