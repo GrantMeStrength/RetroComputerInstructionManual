@@ -115,6 +115,5 @@ With all this equipment, you've more computing power than you know what to do wi
 
 ---
 
-(*) Udo Monk writes: "The 8080 could address up to 128Kb, using the second 64Kb for stack memory. Also later Intel CPU's
-(like the 8086) have segments registers, one for the stack, so that one can isolate memory used for the stack from everything else. Also if you look at how the Intel PL/M language was implemented, it won't pass parameters on the stack and no code is generated trying to directly access the stack. This feature was not used by more or less hobby machines from MITS or IMSAI, but in controllers for military usage, power plants, airplanes and so on, because software that cannot easily corrupt the stack works more reliably."
+(*) Udo Monk writes: "The 8080 could address up to 128Kb, using the second 64Kb for stack memory. Also later Intel CPU's (like the 8086) have segments registers, one for the stack, so that one can isolate memory used for the stack from everything else. Also if you look at how the Intel PL/M language was implemented, it won't pass parameters on the stack and no code is generated trying to directly access the stack. This feature was not used by more or less hobby machines from MITS or IMSAI, but in controllers for military usage, power plants, airplanes and so on, because software that cannot easily corrupt the stack works more reliably."
 
