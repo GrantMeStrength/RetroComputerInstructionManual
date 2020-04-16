@@ -43,6 +43,7 @@ Or, to put it another way, "OK you've built your kit - now what?"
 * Games and CP/M
 * [Connecting to BBSs with the IMSAI8080esp](imsai_bbs)
 * [Moving files to and from using Kermit on the IMSI8080esp](imsai_kermit.md)
+* [Using CPMtools with the Altair-Duino](altair_cpmtools.md)
 * Appendices
     - [Retro computing Kits](kits)
     - Using retro computing simulators on a desktop computer
