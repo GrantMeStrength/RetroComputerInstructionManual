@@ -56,8 +56,11 @@ Thus, 10 010 010 is 222.
 Some more examples in case you don't quite get it:
 
 00 000 001 == 001
+
 01 001 111 == 113
+
 10 010 110 == 226
+
 11 111 111 == 377
 
 So any grouping of switch 7 to switch 0 can be written using a three digit octal number. 

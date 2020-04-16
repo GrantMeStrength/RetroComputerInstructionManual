@@ -19,6 +19,9 @@ Your choices are:
 
 Not all devices and configurations may be supported by your hardware.
 
+**New options**
+
+The Altair-Duino system from AdWaterAndStir has a "Pro" version which includes built-in VGA video and PS/2 keyboard support (soon to be USB keyboard input). The IMSAI8080esp is also soon to have an expansion card with a video out port. These solutions greatly simplify seeing your computer do something other than blink the LEDs.
 
 **Connect to a computer over USB**
 
