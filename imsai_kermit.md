@@ -81,10 +81,11 @@ Note: The first time I tried this on a PM I couldn't get this to work. Using "Co
 
 ## Update
 
-Here's a way to make copying over more files simpler, courtest of Mr High Nibble.
+Here's a way to make copying over multiple files a little simpler, courtesy of Mr High Nibble.
 
 1. Connect the IMSAI and your computer as above.
-2. When the Mac (or PC) is at the *C_Kermit>* prompt, enter *SERVER*
-3. On the IMSAI, at the *Kermit* prompt you can now use the *REMOTE* commands to explore the file system on the Mac/PC, and send receive files. For example, if you enter *REMOTE DIR* you will see a dir of the Mac/PC, and then enter *GET <filename>* to copy it across. Enter *REMOTE HELP* for a list of all commands - REMOTE HOST allows you to run Shell commands on the remote computer, which is potentially mischievious but fun.
+2. When the Mac (or PC) is at the *C_Kermit>* prompt, enter *SERVER*.
+3. On the IMSAI, at the *Kermit* prompt you can now use the *REMOTE* commands to explore the file system on the Mac/PC, and send/receive files. 
+For example, if you enter *REMOTE DIR* you will see a directory of the Mac/PC, and you can then enter *GET <filename>* to copy it across. Enter *REMOTE HELP* for a list of all commands - REMOTE HOST allows you to run Shell commands on the remote computer, which is potentially mischievious but fun.
 
 ![IMSAI Kermit1](images/imsai-kermit.png)
