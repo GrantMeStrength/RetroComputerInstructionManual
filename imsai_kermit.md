@@ -4,7 +4,7 @@
 
 There are many ways to copy files to the remote "disk" of the emulated computer. For example, you can create a virtual .dsk image using [CPMTools](http://www.moria.de/~michael/cpmtools/), and then drag-and-drop it into the LIBS: folder. Or you can try this - connecting the IMSAI to your computer (in this case a Mac) using the IMSAI's ability to fool itself into thinking it is dialing a remote BBS.
 
-
+0
 * On the Mac..
 
 Install a version of Kermit. Here's what worked for me: 
@@ -77,3 +77,14 @@ The easiest way to use Kermit is to install [WSL](https://docs.microsoft.com/en-
 You can then follow the instructions above.
 
 Note: The first time I tried this on a PM I couldn't get this to work. Using "Connect" was fine - I could type messages - but sending a file from the PC did nothing. However, once I sent a file from the IMSAI to the PC, that seemded to unclog the blockage and everything worked as expected. YMMV.
+
+
+## Update
+
+Here's a way to make copying over more files simpler, courtest of Mr High Nibble.
+
+1. Connect the IMSAI and your computer as above.
+2. When the Mac (or PC) is at the *C_Kermit>* prompt, enter *SERVER*
+3. On the IMSAI, at the *Kermit* prompt you can now use the *REMOTE* commands to explore the file system on the Mac/PC, and send receive files. For example, if you enter *REMOTE DIR* you will see a dir of the Mac/PC, and then enter *GET <filename>* to copy it across. Enter *REMOTE HELP* for a list of all commands - REMOTE HOST allows you to run Shell commands on the remote computer, which is potentially mischievious but fun.
+
+![IMSAI Kermit1](images/imsai-kermit.png)
