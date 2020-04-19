@@ -4,7 +4,6 @@
 
 There are many ways to copy files to the remote "disk" of the emulated computer. For example, you can create a virtual .dsk image using [CPMTools](http://www.moria.de/~michael/cpmtools/), and then drag-and-drop it into the LIBS: folder. Or you can try this - connecting the IMSAI to your computer (in this case a Mac) using the IMSAI's ability to fool itself into thinking it is dialing a remote BBS.
 
-0
 * On the Mac..
 
 Install a version of Kermit. Here's what worked for me: 
