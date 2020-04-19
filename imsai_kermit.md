@@ -50,20 +50,19 @@ Kermit on the Mac will revert to the Kermit command prompt.
 
 * On the IMSAI..
 
-Press Ctrl and \, followed by C to return to the Kermit command prompt.
+Press *Ctrl* and *\*, followed by *C* to return to the Kermit command prompt. (This sequence works on the Mac/PC Kermit too).
 
-At this point you could type CONNECT on both systems and type text messages. However, let's send a file. You need to specify the name you want the received file to be called.
+At this point you could type CONNECT on both systems and type text messages. However, let's send a file from the Mac to the IMSAI. You need to specify the name you want the received file to be called, on at the IMSAI's Kermit prompt enter:
 
 > receive hello.txt
 
 * On the Mac..
 
-You need to send the file. The XMODEM protocol works, so let's use that:
+You need to actually send the file. The XMODEM protocol works, so let's use that:
 
 > send /protocol:xmodem hello.txt
 
-
-You should now see the file being copied over. 
+You should now see the file being copied over. If you quit Kermit on the IMSAI, you can find with a DIR. Remember if you aren't using the Hard Disk image on the IMSAI you will quickly run out of space!
 
 You can use this technique to send any kind of file to the IMSAI without having to physically connect it to Mac, so it's handy for quickly installing an app or sending some text files. It works in the other direction too - sending files from the IMSAI to the Mac.
 
