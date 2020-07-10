@@ -20,3 +20,32 @@ Here's how to log into a remote BBS.
 
 Try [Telnet BBS Guide](https://www.telnetbbsguide.com)
 
+## AT Commands
+
+In the olden days we used modems to dial up other computers. Modems were connected to serial ports, and controlled by sending specific commands - usually starting with "AT" and then another character or two. The IMSAI (and the VT132 card also from TheHighNibble) extends the AT set to include commands that will connect to a remote computer system over TELNET protocol. Here's a [list of commands](https://thehighnibble.com/vt132/operation/modem/#at-commands).
+
+<pre>
+AT COMMANDS:
+AT  - 'AT' Test                 | A/  - (immediate) Repeat last
+AT$ - Help                      | ATIn - Information 
+ATZ - Reset modem               |
+AT&F - Restore factory defaults | AT&W - Write settings to NVRAM
+ATDhostname:port - Dial hostname, port optional (default:23)
++++ - Return to command mode    | ATO - Return Online
+ATH - Hangup
+AT&A - Enable Answer mode - listen for incoming calls
+ATA - Answer
+ATSn - Select register n
+AT? - Query current register    | AT=r - Set current register to r
+AT&K0 - Disable flow control    | AT&K1 - Enable RTS/CTS flow control
+AT+W? - Query WiFi AP Join status
+AT+W=ssid,password - Join WiFI AP
+AT+W$ - Show WiFi IP adddress   | AT+W# - Show WiFi MAC adddress
+AT+W+ - Reconnect WiFI AP       | AT+W- - Quit WiFi AP
+AT+U? - Query OTA Update        | AT+U=url - Set custom URL for OTA update
+AT+U^ - Upgrade to OTA Update   | AT+U! - Force Upgrade to OTA Update
+AT+U$ - Show OTA Parition Status
+AT+B? - Query Baud Rate         | AT+B=nnn - Set Baud Rate (4800..115200)
+AT+T? - Query Telnet TERM       | AT+T=name - Set Telnet TERM
+</pre>
+
